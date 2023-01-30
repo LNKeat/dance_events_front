@@ -1,51 +1,76 @@
-Dance Events Front End
+# Dance Events Front End
 A single page web application to help track dance events for future planning. A user can add and remove dance events to their list. They easily see, by color coding, the expense rating for each dance event in order to budget accordingly. Dance events can be searched by location and by expense rating.  
 
-Motivation
+# Motivation
 When it comes to hobbies, my strength is in my vision and less in my planning the details and budget.  Since I am building a full stack SPA using React for the front-end and Active Record with Sinatra for the back-end I thought I would also create a simple application that makes the cost of events clear across a timeline since the events will be listed in order by date, by default.  
 
-Build status
-Build status of continus integration i.e. travis, appveyor etc. Ex. -
+# Getting Started with Create React App
 
-Build Status Windows Build Status
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Code style
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
+## Available Scripts
 
-js-standard-style
+In the project directory, you can run:
 
-Screenshots
-Include logo/demo screenshot etc.
+### `npm start`
 
-Tech/framework used
-Built with React "18.2.0"
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Features
-What makes your project stand out?
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Code Example
-Show what the library does as concisely as possible, developers should be able to figure out how your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+### `npm test`
 
-Installation
-Provide step by step series of examples and explanations about how to get a development env running.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-API Reference
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+### `npm run build`
 
-Tests
-Describe and show how to run the tests with code examples.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Contribute
-Let people know how they can contribute into your project. A contributing guideline will be a big plus.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
+### `npm run eject`
 
-Anything else that seems useful
-License
-A short snippet describing the license (MIT, Apache etc)
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-MIT © Yourname
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
