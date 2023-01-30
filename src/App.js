@@ -1,18 +1,17 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import Welcome from './pages/Welcome';
+import AddEventForm from './pages/AddEventForm';
+import Events from './components/Events';
 import BootstrapPract from './components/BootstrapPract';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
 function App() {
   return (
-    <Container fluid>
-      <header className="App-header">
-        <BootstrapPract />
+    <div className="App">
+      <Welcome />
   
-      </header>
-    </Container>
+    </div>
   );
 }
 
