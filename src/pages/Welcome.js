@@ -7,13 +7,9 @@ const Welcome = () => {
   return (
     <Container fluid className="boot-pract" style={{textAlign: 'center'}}>
       <Row>
-        <Col>
-          <h1>Dance Event Tracker Application</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p>View your dance event wish list below.  Double click on the event to change the cost rating.</p>
+        <Col style={{textAlign: 'start'}}>
+          <h3>View your dance event list below.</h3> 
+           <p>Double click on the event to change the cost rating.</p>
         </Col>
       </Row>
       <Row>
