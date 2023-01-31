@@ -6,7 +6,7 @@ function AddEventForm() {
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
-    "affordable": true,
+    "affordable": false,
     "desc": "",
     "location": ""
   })
@@ -17,6 +17,7 @@ function AddEventForm() {
       ...formValues,
       [name]: name !== 'affordable' ? value : checked
     }
+    setFormValues(newData)
     console.log(newData)
   }
 
@@ -33,17 +34,19 @@ function AddEventForm() {
           onChange={handleChange} />
         </Col>
         <Col>
-          <Form.Control placeholder="Location" />
+          <Form.Control placeholder="Location" name="location" value={formValues.location}
+          onChange={handleChange} />
         </Col>
       </Row>
       <Row>
         <Col className='justify-bottom'>
-        <Form.Control as="textarea" placeholder="Description" />
+        <Form.Control as="textarea" placeholder="Description" name="desc" value={formValues.desc}
+          onChange={handleChange} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <Form.Check type='checkbox' label="Affordable Event"/>
+          <Form.Check type='checkbox' label="Affordable Event" name="affordable" checked={formValues.affordable} onChange={handleChange}/>
         </Col>
       </Row>
       <Row style={{textAlign: 'right'}}>
