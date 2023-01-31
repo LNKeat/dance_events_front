@@ -2,21 +2,24 @@ import DeleteButton from './DeleteButton';
 import Card from 'react-bootstrap/Card';
 
 
-function Event() {
-    const redFlag= '#cb2345'
-    const greenFlag= '#257d4c'
+function Event({ onClick, evt }) {
+    const redFlag= '#ff6584'
+    const greenFlag= '#74a489'
     const yellowFlag= '#f7ed85'
 
   return (
-    <Card style={{ width: '18rem', backgroundColor: '#e6e6e6' }}>
+    <Card className='m-2' style={{ width: '18rem', backgroundColor: '#e6e6e6', textAlign:'left' }}>
       <Card.Body variant="top"
        style={{backgroundColor: `${greenFlag}`}} />
       <Card.Body>
-        <Card.Title>Event Name</Card.Title>
+        <Card.Title>{evt.name}</Card.Title>
         <Card.Text>
-          Event Date: _____________
+          {evt.start}
         </Card.Text>
-        <DeleteButton />
+        <Card.Text>
+          {evt.desc}
+        </Card.Text>
+        <DeleteButton onClick={onClick} />
       </Card.Body>
     </Card>
   );
