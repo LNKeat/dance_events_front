@@ -9,14 +9,6 @@
       "location": "Pasadana, California"
     },
     {
-      "id": 2,
-      "name": "Hot Rhythm Holiday",
-      "start": "February 17, 2023",
-      "affordable": true,
-      "desc": "Lindy Hop, Shag, Balboa",
-      "location": "Austin, Texas"
-    },
-    {
       "id": 3,
       "name": "Camp Hollywood",
       "start": "September 3, 2023",
@@ -33,15 +25,12 @@
       "location": "Seattle, Washington"
     },
     {
+      "name": "Hot Rhythm Holiday",
+      "start": "February 4, 2023",
+      "affordable": true,
+      "desc": "Lindy, Bal, Shag",
+      "location": "Austin, Texas",
       "id": 5
-    },
-    {
-      "name": "ILHC",
-      "start": "5/24/23",
-      "affordable": false,
-      "desc": "",
-      "location": "New York, New York",
-      "id": 6
     }
   ]
 }

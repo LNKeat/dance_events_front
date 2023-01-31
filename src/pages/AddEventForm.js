@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 
 function AddEventForm({ handleAddEvt }) {
@@ -8,8 +9,10 @@ function AddEventForm({ handleAddEvt }) {
     "start": "",
     "affordable": false,
     "desc": "",
-    "location": ""
+    "location": "", 
+    "id": null
   })
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value, checked } = e.target;
@@ -31,6 +34,7 @@ function AddEventForm({ handleAddEvt }) {
       "location": "",
       "id": null
     })
+    navigate('/');
   }
 
   return (

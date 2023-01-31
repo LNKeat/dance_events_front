@@ -1,5 +1,5 @@
 {
-    "danceEvents": [
+    "dance-events": [
       {
         "id": 1,
         "name": "California Balboa Classic",

@@ -3,18 +3,21 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Event from './Event'
 
 
-const Events = ({ onClick, evtList }) => {
+const Events = ({ onClick, evtList, handleDelete }) => {
 
   return (
     <>
     <Container fluid className="boot-pract" style={{textAlign: 'center'}}>
+      <Row md="auto">
       {evtList.map((evt) => (
-            <Col key={evt.id} lg="auto">
-              <Event evt={evt} onClick={onClick} />
+            <Col key={evt.id}>
+              <Event evt={evt} handleDelete={handleDelete} />
             </Col>
 
       ))}
-    </Container></>
+      </Row>
+    </Container>
+    </>
   )
 }
 

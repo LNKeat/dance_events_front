@@ -21,8 +21,7 @@ function App() {
     fetchEvts()
    }, [])
 
-   const handleAddEvt= async (evt) => {
-    console.log(evt)
+   const onAdd= async (evt) => {
     const res = await fetch('http://localhost:5000/dance-events', {
       method: 'POST',
       headers: {
@@ -30,23 +29,25 @@ function App() {
       },
       body: JSON.stringify(evt),
     })
-
     const evtData = await res.json()
-    console.log(evtData)
-    const updEvtList = {...evtList, evt}
-    console.log(updEvtList)
    }
+
+   const onDelete = async (id) => {
+    const res = await fetch(`http://localhost:5000/dance-events/${id}`, {
+      method: 'DELETE',
+    })
+    console.log(res.status)
+    setEvtList(evtList.filter((evt) => evt.id !== id))
+   }
+
 
   return (
     <Router>
       <Container  style={{border: 0}}>
         <Header />
         <Routes>
-          <Route
-            path='/'
-            element={<Welcome evtList={evtList} setEvtList={setEvtList} />}
-          />
-          <Route path='/add' element={<AddEventForm handleAddEvt={handleAddEvt} />} />
+          <Route path='/' element={<Welcome evtList={evtList} setEvtList={setEvtList} handleDelete={onDelete} />} />
+          <Route path='/add' element={<AddEventForm handleAddEvt={onAdd} />} />
         </Routes>
       </Container>
     </Router>
