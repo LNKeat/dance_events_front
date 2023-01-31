@@ -41,8 +41,9 @@ const Welcome = () => {
     ]
   )
   //Click action to delete event
-  const onClick = () =>{
-    console.log('I was deleted')
+  const onClick = (id) =>{
+    const updList = evtList.filter((evt)=> evt.id !== id )
+    setEvtList(updList)
   }
   
   return (
@@ -55,7 +56,7 @@ const Welcome = () => {
       </Row>
       <Row>
         <Col>
-          <Events onClick={onClick} evtList={evtList}  />
+          <Events onClick={onClick} evtList={evtList.sort((a,b)=> new Date(a.start) < new Date(b.start) ? -1 : 0)}  />
         </Col>
       </Row>
     </Container>
