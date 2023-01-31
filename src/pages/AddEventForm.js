@@ -11,8 +11,13 @@ function AddEventForm() {
     "location": ""
   })
 
-  const handleChange = (e) => {
-    console.log(e.target)
+  function handleChange(e) {
+    const { name, value, checked } = e.target;
+    const newData = {
+      ...formValues,
+      [name]: name !== 'affordable' ? value : checked
+    }
+    console.log(newData)
   }
 
   const onSubmit = (e) => {
