@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 import Event from './Event'
 
 
@@ -9,7 +9,10 @@ const Events = ({ onClick, evtList }) => {
     <>
     <Container fluid className="boot-pract" style={{textAlign: 'center'}}>
       {evtList.map((evt) => (
-        <Event key={evt.id} evt={evt} onClick={onClick} />
+            <Col key={evt.id} lg="auto">
+              <Event evt={evt} onClick={onClick} />
+            </Col>
+
       ))}
     </Container></>
   )

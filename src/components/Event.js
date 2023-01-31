@@ -9,7 +9,7 @@ function Event({ onClick, evt }) {
   const toggleAffordable = () => { setIsAffordable(!isAffordable)}
 
   const flagColor = () => {
-    const redFlag= '#ff6584'
+    const redFlag= '#cb2345'
     const greenFlag= '#74a489'
     return isAffordable ? greenFlag : redFlag
   };

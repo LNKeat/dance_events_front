@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 
-function AddEventForm() {
+function AddEventForm({ handleAddEvt }) {
   //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
@@ -18,12 +18,19 @@ function AddEventForm() {
       [name]: name !== 'affordable' ? value : checked
     }
     setFormValues(newData)
-    console.log(newData)
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(e)
+    handleAddEvt(formValues)
+    setFormValues({
+      "name": "",
+      "start": "",
+      "affordable": false,
+      "desc": "",
+      "location": "",
+      "id": null
+    })
   }
 
   return (
@@ -35,6 +42,10 @@ function AddEventForm() {
         </Col>
         <Col>
           <Form.Control placeholder="Location" name="location" value={formValues.location}
+          onChange={handleChange} />
+        </Col>
+        <Col>
+          <Form.Control placeholder="Event Start Date" name="start" value={formValues.start}
           onChange={handleChange} />
         </Col>
       </Row>

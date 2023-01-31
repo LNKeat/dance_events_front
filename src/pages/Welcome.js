@@ -3,43 +3,8 @@ import Events from '../components/Events';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
-const Welcome = () => {
-  const [evtList, setEvtList] = useState(
-    [
-      {
-        "id": 1,
-        "name": "California Balboa Classic",
-        "start": "January 15, 2024",
-        "affordable": true,
-        "desc": "Balboa",
-        "location": "Pasadana, California"
-      },
-      {
-        "id": 2,
-        "name": "Hot Rhythm Holiday",
-        "start": "February 17, 2023",
-        "affordable": true,
-        "desc": "Lindy Hop, Shag, Balboa",
-        "location": "Austin, Texas"
-      },
-      {
-        "id": 3,
-        "name": "Camp Hollywood",
-        "start": "September 3, 2023",
-        "affordable": false,
-        "desc": "Lindy Hop, Shag, Balboa",
-        "location": "Los Angeles, California"
-      },
-      {
-        "id": 4,
-        "name": "Camp Jitterbug",
-        "start": "May 24, 2023",
-        "affordable": false,
-        "desc": "Lindy Hop, Solo Jazz",
-        "location": "Seattle, Washington"
-      }
-    ]
-  )
+const Welcome = ({ evtList, setEvtList }) => {
+
   //Click action to delete event
   const onClick = (id) =>{
     const updList = evtList.filter((evt)=> evt.id !== id )
@@ -48,14 +13,14 @@ const Welcome = () => {
   
   return (
     <Container fluid style={{textAlign: 'center'}}>
-      <Row>
+      <Row md="auto">
         <Col style={{textAlign: 'start'}}>
           <h3>View your dance event list below.</h3> 
            <p>Double click on the event to change the cost rating.</p>
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col md="auto">
           <Events onClick={onClick} evtList={evtList.sort((a,b)=> new Date(a.start) < new Date(b.start) ? -1 : 0)}  />
         </Col>
       </Row>
