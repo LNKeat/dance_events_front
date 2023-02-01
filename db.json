@@ -12,7 +12,7 @@
       "id": 3,
       "name": "Camp Hollywood",
       "start": "September 3, 2023",
-      "affordable": false,
+      "affordable": true,
       "desc": "Lindy Hop, Shag, Balboa",
       "location": "Los Angeles, California"
     },
@@ -23,14 +23,6 @@
       "affordable": false,
       "desc": "Lindy Hop, Solo Jazz",
       "location": "Seattle, Washington"
-    },
-    {
-      "name": "Hot Rhythm Holiday",
-      "start": "February 4, 2023",
-      "affordable": true,
-      "desc": "Lindy, Bal, Shag",
-      "location": "Austin, Texas",
-      "id": 5
     }
   ]
 }

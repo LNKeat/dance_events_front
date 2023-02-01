@@ -28,7 +28,7 @@ function Event({ onClick, evt, handleDelete }) {
   return (
     <Card className='m-2' style={{ width: '18rem', backgroundColor: '#e6e6e6', textAlign:'left' }} onDoubleClick={toggleAffordable}>
       <Card.Body variant="top"
-       style={{backgroundColor: `${flagColor()}`}}>{isAffordable ? 'Affordable Event' : 'Expensive Event'}</Card.Body>
+       style={{backgroundColor: `${flagColor()}`}}>{isAffordable ? 'Affordable' : 'Expensive'}</Card.Body>
       <Card.Body>
         <Card.Title>{evt.name}</Card.Title>
         <Card.Text>
