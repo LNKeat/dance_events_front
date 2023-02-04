@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
 import Welcome from './pages/Welcome';
 import Header from './components/Header';
-import AddEventForm from './pages/AddEventForm';
+import EventForm from './pages/EventForm';
 import Events from './components/Events';
 import BootstrapPract from './components/BootstrapPract';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -47,7 +47,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Welcome evtList={evtList} setEvtList={setEvtList} handleDelete={onDelete} />} />
-          <Route path='/add' element={<AddEventForm handleAddEvt={onAdd} />} />
+          <Route path='/add' element={<EventForm handleAddEvt={onAdd} />} />
         </Routes>
       </Container>
     </Router>

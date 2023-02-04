@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 
-function AddEventForm({ handleAddEvt }) {
+function EventForm({ handleAddEvt }) {
   //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
@@ -20,6 +20,7 @@ function AddEventForm({ handleAddEvt }) {
       ...formValues,
       [name]: name !== 'affordable' ? value : checked
     }
+
     setFormValues(newData)
   }
 
@@ -76,4 +77,4 @@ function AddEventForm({ handleAddEvt }) {
   );
 }
 
-export default AddEventForm;
+export default EventForm;

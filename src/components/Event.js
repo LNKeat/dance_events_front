@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import DeleteButton from './DeleteButton';
+import UpdateButton from './UpdateButton';
 import Card from 'react-bootstrap/Card';
 
 
-function Event({ onClick, evt, handleDelete }) {
+function Event({ evt, handleDelete }) {
   const [isAffordable, setIsAffordable] = useState(evt.affordable)
 
   const toggleAffordable = async () => { 
@@ -41,6 +42,7 @@ function Event({ onClick, evt, handleDelete }) {
           Description: {evt.desc}
         </Card.Text>
         <DeleteButton onClick={() => handleDelete(evt.id)} />
+        <UpdateButton onClick={() => console.log(evt.id)} />
       </Card.Body>
     </Card>
   );

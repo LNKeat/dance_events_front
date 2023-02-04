@@ -3,7 +3,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Event from './Event'
 
 
-const Events = ({ onClick, evtList, handleDelete }) => {
+const Events = ({ evtList, handleDelete }) => {
 
   return (
     <>
