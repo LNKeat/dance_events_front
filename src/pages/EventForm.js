@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 
-function EventForm({  }) {
-  //create state for add or update form
-  const [formType, setFormType] = useState('update')
+function EventForm({ }) {
+  const params = useParams()
+  const navigate = useNavigate()
+  
   //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
@@ -14,10 +15,15 @@ function EventForm({  }) {
     "location": "", 
     "id": null
   })
-  // const params = useParams()
-  const navigate = useNavigate()
 
-
+    useEffect(() => {
+    const fetchEvt = async () => {
+      const resp = await fetch(`http://localhost:5000/dance-events/${params.evtId}`)
+      const evtData = await resp.json()
+      setFormValues(evtData)
+     }
+     !!params.length && fetchEvt() 
+    }, [params])
 
   function onChange(e) {
     const { name, value, checked } = e.target;
@@ -39,10 +45,21 @@ function EventForm({  }) {
     })
     const evtData = await res.json()
    }
+  //  const onUpdate= async (evt) => {
+  //   const res = await fetch('http://localhost:5000/dance-events', {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-type': 'application/json',
+  //     },
+  //     body: JSON.stringify(evt),
+  //   })
+  //   const evtData = await res.json()
+  //  }
+  const onUpdate= (evt) => {console.log(evt)}
 
   const onSubmit = (e) => {
     e.preventDefault()
-    onAdd(formValues)
+    params ? onUpdate(formValues) : onAdd(formValues)
     setFormValues({
       "name": "",
       "start": "",
@@ -53,6 +70,7 @@ function EventForm({  }) {
     })
     navigate('/');
   }
+
 
   return (
     <Form onSubmit={onSubmit}>
