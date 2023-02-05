@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 
 function EventForm({  }) {
+  //create state for add or update form
+  const [formType, setFormType] = useState('update')
   //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
@@ -12,9 +14,12 @@ function EventForm({  }) {
     "location": "", 
     "id": null
   })
-  const navigate = useNavigate();
+  // const params = useParams()
+  const navigate = useNavigate()
 
-  function handleChange(e) {
+
+
+  function onChange(e) {
     const { name, value, checked } = e.target;
     const newData = {
       ...formValues,
@@ -54,26 +59,26 @@ function EventForm({  }) {
       <Row>
         <Col>
           <Form.Control placeholder="Event Name" name="name" value={formValues.name}
-          onChange={handleChange} />
+          onChange={onChange} />
         </Col>
         <Col>
           <Form.Control placeholder="Location" name="location" value={formValues.location}
-          onChange={handleChange} />
+          onChange={onChange} />
         </Col>
         <Col>
           <Form.Control placeholder="Event Start Date" name="start" value={formValues.start}
-          onChange={handleChange} />
+          onChange={onChange} />
         </Col>
       </Row>
       <Row>
         <Col className='justify-bottom'>
         <Form.Control as="textarea" placeholder="Description" name="desc" value={formValues.desc}
-          onChange={handleChange} />
+          onChange={onChange} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <Form.Check type='checkbox' label="Affordable Event" name="affordable" checked={formValues.affordable} onChange={handleChange}/>
+          <Form.Check type='checkbox' label="Affordable Event" name="affordable" checked={formValues.affordable} onChange={onChange}/>
         </Col>
       </Row>
       <Row style={{textAlign: 'right'}}>

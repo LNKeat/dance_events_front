@@ -42,7 +42,7 @@ function Event({ evt, handleDelete }) {
           Description: {evt.desc}
         </Card.Text>
         <DeleteButton onClick={() => handleDelete(evt.id)} />
-        <UpdateButton onClick={() => console.log(evt.id)} />
+        <UpdateButton />
       </Card.Body>
     </Card>
   );
