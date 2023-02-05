@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 
-function EventForm({ handleAddEvt }) {
+function EventForm({  }) {
   //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
@@ -24,9 +24,20 @@ function EventForm({ handleAddEvt }) {
     setFormValues(newData)
   }
 
+   const onAdd= async (evt) => {
+    const res = await fetch('http://localhost:5000/dance-events', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(evt),
+    })
+    const evtData = await res.json()
+   }
+
   const onSubmit = (e) => {
     e.preventDefault()
-    handleAddEvt(formValues)
+    onAdd(formValues)
     setFormValues({
       "name": "",
       "start": "",

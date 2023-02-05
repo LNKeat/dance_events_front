@@ -25,12 +25,12 @@
       "location": "Los Angeles, California"
     },
     {
-      "id": 4,
-      "name": "Camp Jitterbug",
-      "start": "May 24, 2023",
-      "affordable": false,
-      "desc": "Lindy Hop, Solo Jazz",
-      "location": "Seattle, Washington"
+      "name": "Balarado X",
+      "start": "June 24, 2023",
+      "affordable": true,
+      "desc": "Balboa",
+      "location": "Denver, Colorado",
+      "id": 5
     }
   ]
 }

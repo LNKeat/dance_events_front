@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Events from '../components/Events';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
-const Welcome = ({ evtList, setEvtList, handleDelete }) => {
+const Welcome = () => {
+  const [evtList, setEvtList] = useState([])
+
   useEffect(() => {
     const fetchEvts = async () => {
      const resp = await fetch('http://localhost:5000/dance-events')
@@ -12,6 +14,25 @@ const Welcome = ({ evtList, setEvtList, handleDelete }) => {
     }
     fetchEvts()
    }, [])
+
+   const onAdd= async (evt) => {
+    const res = await fetch('http://localhost:5000/dance-events', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(evt),
+    })
+    const evtData = await res.json()
+   }
+
+   const onDelete = async (id) => {
+    const res = await fetch(`http://localhost:5000/dance-events/${id}`, {
+      method: 'DELETE',
+    })
+    console.log(res.status)
+    setEvtList(evtList.filter((evt) => evt.id !== id))
+   }
   
   return (
     <Container fluid >
@@ -23,7 +44,7 @@ const Welcome = ({ evtList, setEvtList, handleDelete }) => {
       </Row>
       <Row>
         <Col md="auto">
-          <Events handleDelete={handleDelete} evtList={evtList.sort((a,b)=> new Date(a.start) < new Date(b.start) ? -1 : 0)}  />
+          <Events handleDelete={onDelete} evtList={evtList.sort((a,b)=> new Date(a.start) < new Date(b.start) ? -1 : 0)}  />
         </Col>
       </Row>
     </Container>
