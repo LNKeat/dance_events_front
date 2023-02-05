@@ -7,18 +7,6 @@ import Card from 'react-bootstrap/Card';
 function Event({ evt, handleDelete }) {
   const [isAffordable, setIsAffordable] = useState(evt.affordable)
 
-  const toggleAffordable = async () => { 
-    const updEvt = {...evt, affordable: !isAffordable}
-    const res = await fetch(`http://localhost:5000/dance-events/${evt.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updEvt)
-    })
-    setIsAffordable(!isAffordable)
-  }
-
   const flagColor = () => {
     const redFlag= '#cb2345'
     const greenFlag= '#74a489'
@@ -27,7 +15,7 @@ function Event({ evt, handleDelete }) {
     
 
   return (
-    <Card className='m-2' style={{ width: '18rem', backgroundColor: '#e6e6e6', textAlign:'left' }} onDoubleClick={toggleAffordable}>
+    <Card className='m-2' style={{ width: '18rem', backgroundColor: '#e6e6e6', textAlign:'left' }}>
       <Card.Body variant="top"
        style={{backgroundColor: `${flagColor()}`}}>{isAffordable ? 'Affordable' : 'Expensive'}</Card.Body>
       <Card.Body>

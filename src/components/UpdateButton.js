@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 const UpdateButton = ({ onClick, evt }) => {
     return (
-        <Button href={`${evt.id}`} style={{backgroundColor: '#6c63ff', border: 'none'}}>Update Event</Button>
+        <Button href={`/update/${evt.id}`} style={{backgroundColor: '#6c63ff', border: 'none'}}>Update Event</Button>
       )
 }
 

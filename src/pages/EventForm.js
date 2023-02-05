@@ -5,7 +5,7 @@ import { Col, Form, Row, Button } from 'react-bootstrap';
 function EventForm({ }) {
   const params = useParams()
   const navigate = useNavigate()
-  
+  // debugger
   //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
@@ -22,7 +22,7 @@ function EventForm({ }) {
       const evtData = await resp.json()
       setFormValues(evtData)
      }
-     !!params.length && fetchEvt() 
+     Object.keys(params).length && fetchEvt() 
     }, [params])
 
   function onChange(e) {
@@ -45,17 +45,17 @@ function EventForm({ }) {
     })
     const evtData = await res.json()
    }
-  //  const onUpdate= async (evt) => {
-  //   const res = await fetch('http://localhost:5000/dance-events', {
-  //     method: 'PUT',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(evt),
-  //   })
-  //   const evtData = await res.json()
-  //  }
-  const onUpdate= (evt) => {console.log(evt)}
+   const onUpdate= async (evt) => {
+    const res = await fetch(`http://localhost:5000/dance-events/${evt.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(evt),
+    })
+    const evtData = await res.json()
+    }
+  // const onUpdate= (evt) => {console.log(evt)}
 
   const onSubmit = (e) => {
     e.preventDefault()

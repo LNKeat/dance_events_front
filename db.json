@@ -17,36 +17,20 @@
       "location": "Austin, Texas"
     },
     {
-      "name": "Balarado X",
-      "start": "June 24, 2023",
+      "id": 3,
+      "name": "Camp Hollywood",
+      "start": "September 3, 2023",
+      "affordable": false,
+      "desc": "Lindy Hop, Shag, Balboa",
+      "location": "Los Angeles, California"
+    },
+    {
+      "id": 4,
+      "name": "Camp Jitterbug",
+      "start": "July 24, 2023",
       "affordable": true,
-      "desc": "Balboa",
-      "location": "Denver, Colorado",
-      "id": 5
-    },
-    {
-      "name": "Great Lakes",
-      "start": "8/27/23",
-      "affordable": false,
-      "desc": "",
-      "location": "Chicago, Illinois",
-      "id": 6
-    },
-    {
-      "name": "New Event",
-      "start": "5/5/2024",
-      "affordable": false,
-      "desc": "Swing",
-      "location": "Ljubljana, Slovenia",
-      "id": 7
-    },
-    {
-      "name": "Old Event",
-      "start": "3/4/22",
-      "affordable": false,
-      "desc": "",
-      "location": "Oakland, California",
-      "id": 8
+      "desc": "Lindy Hop, Solo Jazz",
+      "location": "Seattle, Washington"
     }
   ]
 }
