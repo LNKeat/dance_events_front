@@ -24,13 +24,15 @@ function Event({ evt, handleDelete }) {
           {evt.start}
         </Card.Text>
         <Card.Text>
-          Location: {evt.location
+          Location: {evt.location.name
           //change to eve.location.name}
           }
         </Card.Text>
         <Card.Text>
-          
           Style: {evt.dance_style}
+        </Card.Text>
+        <Card.Text>
+          Price: ${evt.price}
         </Card.Text>
         <DeleteButton onClick={() => handleDelete(evt.id)} />
         <UpdateButton evt={evt} />
