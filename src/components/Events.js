@@ -8,7 +8,7 @@ const Events = () => {
 
   useEffect(() => {
     const fetchEvts = async () => {
-     const resp = await fetch('http://localhost:5000/dance-events')
+     const resp = await fetch('http://localhost:9292/events')
      const data = await resp.json()
      setEvtList(data)
     }
