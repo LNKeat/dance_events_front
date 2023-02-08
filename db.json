@@ -5,7 +5,7 @@
       "name": "California Balboa Classic",
       "start": "January 15, 2024",
       "affordable": true,
-      "desc": "Balboa",
+      "style": "Balboa",
       "location": "Pasadana, California"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Hot Rhythm Holiday",
       "start": "February 17, 2023",
       "affordable": true,
-      "desc": "Lindy Hop, Shag, Balboa",
+      "style": "Mixed",
       "location": "Austin, Texas"
     },
     {
@@ -21,16 +21,32 @@
       "name": "Camp Hollywood",
       "start": "September 3, 2023",
       "affordable": false,
-      "desc": "Lindy Hop, Shag, Balboa",
+      "style": "Mixed",
       "location": "Los Angeles, California"
     },
     {
       "id": 4,
       "name": "Camp Jitterbug",
-      "start": "July 24, 2023",
-      "affordable": true,
-      "desc": "Lindy Hop, Solo Jazz",
+      "start": "May 24, 2023",
+      "affordable": false,
+      "style": "Lindy H0p",
       "location": "Seattle, Washington"
+    },
+    {
+      "name": "Lindy Diversion",
+      "start": "2/26/23",
+      "affordable": true,
+      "style": "Blues",
+      "location": "Denver, Colorado",
+      "id": 5
+    },
+    {
+      "name": "ILHC",
+      "start": "5/24/23",
+      "affordable": false,
+      "style": "Lindy HOp",
+      "location": "New York, New York",
+      "id": 6
     }
   ]
 }

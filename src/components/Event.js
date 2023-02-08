@@ -27,7 +27,7 @@ function Event({ evt, handleDelete }) {
           Location: {evt.location}
         </Card.Text>
         <Card.Text>
-          Description: {evt.desc}
+          Style: {evt.style}
         </Card.Text>
         <DeleteButton onClick={() => handleDelete(evt.id)} />
         <UpdateButton evt={evt} />

@@ -11,7 +11,7 @@ function EventForm({ }) {
     "name": "",
     "start": "",
     "affordable": false,
-    "desc": "",
+    "style": "",
     "location": "", 
     "id": null
   })
@@ -59,12 +59,12 @@ function EventForm({ }) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    params ? onUpdate(formValues) : onAdd(formValues)
+    Object.keys(params).length ? onUpdate(formValues) : onAdd(formValues)
     setFormValues({
       "name": "",
       "start": "",
       "affordable": false,
-      "desc": "",
+      "style": "",
       "location": "",
       "id": null
     })
@@ -90,7 +90,7 @@ function EventForm({ }) {
       </Row>
       <Row>
         <Col className='justify-bottom'>
-        <Form.Control as="textarea" placeholder="Description" name="desc" value={formValues.desc}
+        <Form.Control as="textarea" placeholder="Dance Style" name="style" value={formValues.style}
           onChange={onChange} />
         </Col>
       </Row>
