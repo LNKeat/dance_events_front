@@ -11,15 +11,15 @@ function EventForm({ }) {
     "is_affordable": false,
     "dance_style": "",
     "location": "", 
-    "price":null,
-    "id": null
+    "price":"",
+    "id": ""
   })
 
     useEffect(() => {
     const fetchEvt = async () => {
       const resp = await fetch(`http://localhost:9292/events/${params.evtId}`)
-      const evtData = await resp.json()
-      setFormValues(evtData)
+      const data = await resp.json()
+      setFormValues(data)
      }
      Object.keys(params).length && fetchEvt() 
     }, [params])
@@ -66,8 +66,8 @@ function EventForm({ }) {
       "is_affordable": false,
       "dance_style": "",
       "location": "",
-      "price":null,
-      "id": null
+      "price":"",
+      "id": ""
     })
     navigate('/');
   }
@@ -95,7 +95,7 @@ function EventForm({ }) {
           onChange={onChange} />
         </Col>
         <Col className='justify-bottom'>
-        <Form.Control as="textarea" placeholder="Price" name="price" value={formValues.price}
+        <Form.Control placeholder="Price" name="price" value={formValues.price}
           onChange={onChange} />
         </Col>
       </Row>

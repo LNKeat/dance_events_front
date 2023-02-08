@@ -5,12 +5,15 @@ import Event from './Event'
 
 const Events = () => {
   const [evtList, setEvtList] = useState([])
+  const [locations, setLocations] = useState([])
 
   useEffect(() => {
     const fetchEvts = async () => {
      const resp = await fetch('http://localhost:9292/events')
-     const data = await resp.json()
-     setEvtList(data)
+     const evtData = await resp.json()
+     let locData = evtData.map((evt) => ({location: evt.location}))
+     setEvtList(evtData)
+     setLocations(locData)
     }
     fetchEvts()
    }, [])
@@ -39,10 +42,9 @@ const Events = () => {
     <Container fluid className="boot-pract" style={{textAlign: 'center'}}>
       <Row md="auto">
       {evtList.map((evt) => (
-            <Col key={evt.id}>
-              <Event evt={evt} handleDelete={onDelete} />
-            </Col>
-
+          <Col key={evt.id}>
+            <Event evt={evt} handleDelete={onDelete} />
+          </Col>
       ))}
       </Row>
     </Container>
