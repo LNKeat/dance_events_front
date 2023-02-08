@@ -5,8 +5,6 @@ import { Col, Form, Row, Button } from 'react-bootstrap';
 function EventForm({ }) {
   const params = useParams()
   const navigate = useNavigate()
-  // debugger
-  //create state for form values
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
@@ -19,7 +17,7 @@ function EventForm({ }) {
 
     useEffect(() => {
     const fetchEvt = async () => {
-      const resp = await fetch(`http://localhost:5000/dance-events/${params.evtId}`)
+      const resp = await fetch(`http://localhost:9292/events/${params.evtId}`)
       const evtData = await resp.json()
       setFormValues(evtData)
      }
@@ -37,7 +35,7 @@ function EventForm({ }) {
   }
 
    const onAdd= async (evt) => {
-    const res = await fetch('http://localhost:5000/dance-events', {
+    const res = await fetch('http://localhost:9292/events', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -47,7 +45,8 @@ function EventForm({ }) {
     const evtData = await res.json()
    }
    const onUpdate= async (evt) => {
-    const res = await fetch(`http://localhost:5000/dance-events/${evt.id}`, {
+    console.log(evt)
+    const res = await fetch(`http://localhost:9292/events/${evt.id}`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json',
@@ -56,7 +55,7 @@ function EventForm({ }) {
     })
     const evtData = await res.json()
     }
-  // const onUpdate= (evt) => {console.log(evt)}
+
 
   const onSubmit = (e) => {
     e.preventDefault()
