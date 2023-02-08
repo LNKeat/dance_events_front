@@ -13,6 +13,7 @@ function EventForm({ }) {
     "is_affordable": false,
     "dance_style": "",
     "location": "", 
+    "price":null,
     "id": null
   })
 
@@ -66,6 +67,7 @@ function EventForm({ }) {
       "is_affordable": false,
       "dance_style": "",
       "location": "",
+      "price":null,
       "id": null
     })
     navigate('/');
@@ -91,6 +93,10 @@ function EventForm({ }) {
       <Row>
         <Col className='justify-bottom'>
         <Form.Control as="textarea" placeholder="Dance Style" name="dance_style" value={formValues.dance_style}
+          onChange={onChange} />
+        </Col>
+        <Col className='justify-bottom'>
+        <Form.Control as="textarea" placeholder="Price" name="price" value={formValues.price}
           onChange={onChange} />
         </Col>
       </Row>
