@@ -24,9 +24,12 @@ function Event({ evt, handleDelete }) {
           {evt.start}
         </Card.Text>
         <Card.Text>
-          Location: {evt.location.name}
+          Location: {evt.location
+          //change to eve.location.name}
+          }
         </Card.Text>
         <Card.Text>
+          
           Style: {evt.dance_style}
         </Card.Text>
         <DeleteButton onClick={() => handleDelete(evt.id)} />
