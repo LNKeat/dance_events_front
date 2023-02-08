@@ -10,8 +10,8 @@ function EventForm({ }) {
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
-    "affordable": false,
-    "style": "",
+    "is_affordable": false,
+    "dance_style": "",
     "location": "", 
     "id": null
   })
@@ -29,7 +29,7 @@ function EventForm({ }) {
     const { name, value, checked } = e.target;
     const newData = {
       ...formValues,
-      [name]: name !== 'affordable' ? value : checked
+      [name]: name !== 'is_affordable' ? value : checked
     }
 
     setFormValues(newData)
@@ -63,8 +63,8 @@ function EventForm({ }) {
     setFormValues({
       "name": "",
       "start": "",
-      "affordable": false,
-      "style": "",
+      "is_affordable": false,
+      "dance_style": "",
       "location": "",
       "id": null
     })
@@ -90,13 +90,13 @@ function EventForm({ }) {
       </Row>
       <Row>
         <Col className='justify-bottom'>
-        <Form.Control as="textarea" placeholder="Dance Style" name="style" value={formValues.style}
+        <Form.Control as="textarea" placeholder="Dance Style" name="dance_style" value={formValues.dance_style}
           onChange={onChange} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <Form.Check type='checkbox' label="Affordable Event" name="affordable" checked={formValues.affordable} onChange={onChange}/>
+          <Form.Check type='checkbox' label="Affordable Event" name="is_affordable" checked={formValues.affordable} onChange={onChange}/>
         </Col>
       </Row>
       <Row style={{textAlign: 'right'}}>

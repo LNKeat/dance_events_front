@@ -10,7 +10,7 @@ const Events = () => {
     const fetchEvts = async () => {
      const resp = await fetch('http://localhost:5000/dance-events')
      const data = await resp.json()
-     setEvtList(data.sort((a,b)=> new Date(a.start) < new Date(b.start) ? -1 : 0))
+     setEvtList(data)
     }
     fetchEvts()
    }, [])

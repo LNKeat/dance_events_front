@@ -5,7 +5,8 @@ import Card from 'react-bootstrap/Card';
 
 
 function Event({ evt, handleDelete }) {
-  const [isAffordable, setIsAffordable] = useState(evt.affordable)
+  const [isAffordable, setIsAffordable] = useState(evt.is_affordable)
+  console.log(evt)
 
   const flagColor = () => {
     const redFlag= '#cb2345'
@@ -27,7 +28,7 @@ function Event({ evt, handleDelete }) {
           Location: {evt.location}
         </Card.Text>
         <Card.Text>
-          Style: {evt.style}
+          Style: {evt.dance_style}
         </Card.Text>
         <DeleteButton onClick={() => handleDelete(evt.id)} />
         <UpdateButton evt={evt} />
