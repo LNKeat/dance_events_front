@@ -18,6 +18,7 @@ function Header() {
           <Nav className="me-auto" style={{alignContent: 'right'}}>
             <Nav.Link href="/">Events List</Nav.Link>
             <Nav.Link href="add">Add Event</Nav.Link>
+            <Nav.Link href="add-location">Add Location</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Image rounded src={jam} width={200} height={200} />

@@ -26,7 +26,10 @@ Runs the app in the development mode using a db.json file for a mock back-end
 Open [http://localhost:5000](http://localhost:5000) to start the server.  You'll have to update the links in the application from localhost:9292 to localhost:5000 to do this and skip using the database. 
 
 
-## Learn More
+## Open source illustrations graciously shared by: 
+[https://undraw.co](https://undraw.co)
 
+
+## Application Build Process
 You can learn more about my process building this application in my blog: [https://laurakeatdev.medium.com/](https://laurakeatdev.medium.com/)
 
