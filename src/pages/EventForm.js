@@ -74,26 +74,41 @@ function EventForm({ }) {
     <Form onSubmit={onSubmit}>
       <Row>
         <Col>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>Event Name:</Form.Label>
           <Form.Control placeholder="Event Name" name="name" value={formValues.name}
           onChange={onChange} />
+        </Form.Group>
         </Col>
         <Col>
+        <Form.Group className="mb-3" controlId="formBasicLocation">
+          <Form.Label>Event Location:</Form.Label>
           <Form.Control placeholder="Location" name="location_name" value={formValues.location_name}
           onChange={onChange} />
+          </Form.Group>
         </Col>
         <Col>
-          <Form.Control placeholder="Event Start Date" name="start" value={formValues.start}
+        <Form.Group className="mb-3" controlId="formBasicDate">
+          <Form.Label>Event Start Date:</Form.Label>
+          <Form.Control placeholder="Month/Day/Year" name="start" value={formValues.start}
           onChange={onChange} />
+        </Form.Group>
         </Col>
       </Row>
       <Row>
         <Col className='justify-bottom'>
+        <Form.Group className="mb-3" controlId="formBasicStyle">
+          <Form.Label>Dance Style:</Form.Label>
         <Form.Control as="textarea" placeholder="Dance Style" name="dance_style" value={formValues.dance_style}
           onChange={onChange} />
+          </Form.Group>
         </Col>
         <Col className='justify-bottom'>
-        <Form.Control placeholder="Price" name="price" value={formValues.price}
+        <Form.Group className="mb-3" controlId="formBasicPrice">
+          <Form.Label>Event Price:</Form.Label>
+         <Form.Control placeholder="Price" name="price" value={formValues.price}
           onChange={onChange} />
+          </Form.Group>
         </Col>
       </Row>
       <Row>
