@@ -9,7 +9,7 @@ function Event({ evt, onDelete }) {
 
   const flagColor = () => {
     const redFlag= '#cb2345'
-    const greenFlag= '#74a489'
+    const greenFlag= '#44895b'
     return isAffordable ? greenFlag : redFlag
   };
     

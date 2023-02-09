@@ -3,14 +3,10 @@ import { Container } from 'react-bootstrap';
 import Welcome from './pages/Welcome';
 import Header from './components/Header';
 import EventForm from './pages/EventForm';
-import BootstrapPract from './components/BootstrapPract';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  
-
-
   return (
     <Router>
       <Container  style={{border: 0}}>
