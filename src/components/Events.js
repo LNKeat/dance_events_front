@@ -31,11 +31,10 @@ const Events = () => {
     const evtData = await res.json()
    }
 
-   const onDelete = async (id) => {
-    const res = await fetch(`http://localhost:5000/dance-events/${id}`, {
+   const handleDelete = async (id) => {
+    const res = await fetch(`http://localhost:9292/events/${id}`, {
       method: 'DELETE',
     })
-    console.log(res.status)
     setEvtList(evtList.filter((evt) => evt.id !== id))
    }
 
@@ -44,7 +43,7 @@ const Events = () => {
       <Row md="auto">
       {evtList.map((evt) => (
           <Col key={evt.id}>
-            <Event evt={evt} handleDelete={onDelete} />
+            <Event evt={evt} onDelete={handleDelete} />
           </Col>
       ))}
       </Row>

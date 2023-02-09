@@ -33,7 +33,35 @@ const updateEvent = async (formValues) => {
     })
 }
 
+const addEvent = () => console.log('placeholder')
+// const addEvent = async (formValues) => {
+//     const location = {
+//         id: formValues.location_id,
+//         name: formValues.location_name
+//     }
+
+//     //add location
+//     const locationRes = await fetch(`http://localhost:9292/locations/${location.id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-type': 'application/json',
+//         },
+//         body: JSON.stringify(location),
+//     })
+
+
+//     //add event
+//     const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-type': 'application/json',
+//         },
+//         body: JSON.stringify(formValues),
+//     })
+// }
+
 export default {
     getEvents,
-    updateEvent
+    updateEvent,
+    addEvent
 }
