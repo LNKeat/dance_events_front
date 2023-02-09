@@ -6,21 +6,23 @@ function LocationForm({ }) {
     const navigate = useNavigate()
     const [newLocation, setNewLocation] = useState("")
 
-    //    const onAdd= async (evt) => {
-    //     const res = await fetch('http://localhost:9292/events', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-type': 'application/json',
-    //       },
-    //       body: JSON.stringify(evt),
-    //     })
-    //     const evtData = await res.json()
-    //    }
+    const onAdd= async (loc) => {
+        const res = await fetch('http://localhost:9292/locations', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({name: loc}),
+        })
+        const data = await res.json()
+        console.log(data)
+       }
 
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        newLocation("")
+        onAdd(newLocation)
+        setNewLocation("")
         navigate('/');
     }
 
