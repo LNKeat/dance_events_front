@@ -50,18 +50,9 @@ function EventForm({ }) {
     })
     const evtData = await res.json()
    }
-   const onUpdate= async (evt) => {
-    console.log(evt)
-    const res = await fetch(`http://localhost:9292/events/${evt.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(evt),
-    })
-    const evtData = await res.json()
-    }
 
+//checks if there are params
+//params ? run updateEvent : run addEvent (helper functions in EventService.js)
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -75,7 +66,6 @@ function EventForm({ }) {
       "price":"",
       "id": ""
     })
-    console.log('navigate')
     navigate('/');
   }
 

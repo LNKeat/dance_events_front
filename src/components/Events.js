@@ -10,7 +10,6 @@ const Events = () => {
     const getEvents = async () => {
       const resp = await fetch('http://localhost:9292/events')
       const evtData = await resp.json()
-      console.log(evtData)
       setEvtList(evtData.map((evt) => ({
           ...evt,
           location_name: evt.location.name

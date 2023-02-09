@@ -21,7 +21,7 @@ const updateEvent = async (formValues) => {
         },
         body: JSON.stringify(location),
     })
-    console.log(locationRes)
+
 
     //update event
     const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
@@ -31,7 +31,6 @@ const updateEvent = async (formValues) => {
         },
         body: JSON.stringify(formValues),
     })
-    console.log(eventRes)
 }
 
 export default {
