@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Welcome from './pages/Welcome';
 import Header from './components/Header';
 import EventForm from './pages/EventForm';
+import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -16,6 +17,7 @@ function App() {
           <Route path='/add' element={<EventForm />} />
           <Route path='/update/:evtId' element={<EventForm />} />
         </Routes>
+        <Footer />
       </Container>
     </Router>
   );
