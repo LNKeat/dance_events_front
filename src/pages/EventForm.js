@@ -1,3 +1,5 @@
+
+import EventService from '../services/EventService';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Col, Form, Row, Button } from 'react-bootstrap';
@@ -10,7 +12,7 @@ function EventForm({ }) {
     "start": "",
     "is_affordable": false,
     "dance_style": "",
-    "location": "", 
+    "location_name": "", 
     "price":"",
     "id": ""
   })
@@ -19,7 +21,11 @@ function EventForm({ }) {
     const fetchEvt = async () => {
       const resp = await fetch(`http://localhost:9292/events/${params.evtId}`)
       const data = await resp.json()
-      setFormValues(data)
+      setFormValues({
+        ...data,
+        location_name: data.location.name
+    })
+
      }
      Object.keys(params).length && fetchEvt() 
     }, [params])
@@ -57,18 +63,19 @@ function EventForm({ }) {
     }
 
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-    Object.keys(params).length ? onUpdate(formValues) : onAdd(formValues)
+    Object.keys(params).length ? await EventService.updateEvent(formValues) : await onAdd(formValues)
     setFormValues({
       "name": "",
       "start": "",
       "is_affordable": false,
       "dance_style": "",
-      "location": "",
+      "location_name": "",
       "price":"",
       "id": ""
     })
+    console.log('navigate')
     navigate('/');
   }
 
@@ -81,7 +88,7 @@ function EventForm({ }) {
           onChange={onChange} />
         </Col>
         <Col>
-          <Form.Control placeholder="Location" name="location" value={formValues.location}
+          <Form.Control placeholder="Location" name="location_name" value={formValues.location_name}
           onChange={onChange} />
         </Col>
         <Col>

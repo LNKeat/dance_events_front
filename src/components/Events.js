@@ -5,18 +5,21 @@ import Event from './Event'
 
 const Events = () => {
   const [evtList, setEvtList] = useState([])
-  const [locations, setLocations] = useState([])
 
   useEffect(() => {
-    const fetchEvts = async () => {
-     const resp = await fetch('http://localhost:9292/events')
-     const evtData = await resp.json()
-     let locData = evtData.map((evt) => ({location: evt.location}))
-     setEvtList(evtData)
-     setLocations(locData)
+    const getEvents = async () => {
+      const resp = await fetch('http://localhost:9292/events')
+      const evtData = await resp.json()
+      console.log(evtData)
+      setEvtList(evtData.map((evt) => ({
+          ...evt,
+          location_name: evt.location.name
+      })))
     }
-    fetchEvts()
+    getEvents()
    }, [])
+
+   
 
    const onAdd= async (evt) => {
     const res = await fetch('http://localhost:5000/dance-events', {
@@ -38,7 +41,6 @@ const Events = () => {
    }
 
   return (
-    <>
     <Container fluid className="boot-pract" style={{textAlign: 'center'}}>
       <Row md="auto">
       {evtList.map((evt) => (
@@ -48,7 +50,6 @@ const Events = () => {
       ))}
       </Row>
     </Container>
-    </>
   )
 }
 
