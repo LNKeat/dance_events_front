@@ -1,18 +1,9 @@
-const getEvents = async () => {
-    const resp = await fetch('http://localhost:9292/events')
-    const evtData = await resp.json()
-    return evtData.map((evt) => ({
-        ...evt,
-        location_name: evt.location.name
-    }))
-}
 
 const updateEvent = async (formValues) => {
     const location = {
         id: formValues.location_id,
         name: formValues.location_name
     }
-
     //update location
     const locationRes = await fetch(`http://localhost:9292/locations/${location.id}`, {
         method: 'PUT',
@@ -21,8 +12,6 @@ const updateEvent = async (formValues) => {
         },
         body: JSON.stringify(location),
     })
-
-
     //update event
     const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
         method: 'PUT',
@@ -42,7 +31,7 @@ const addEvent = () => console.log('placeholder')
 
 //     //add location
 //     const locationRes = await fetch(`http://localhost:9292/locations/${location.id}`, {
-//         method: 'PUT',
+//         method: 'POST',
 //         headers: {
 //             'Content-type': 'application/json',
 //         },
@@ -52,7 +41,7 @@ const addEvent = () => console.log('placeholder')
 
 //     //add event
 //     const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
-//         method: 'PUT',
+//         method: 'POST',
 //         headers: {
 //             'Content-type': 'application/json',
 //         },
@@ -61,7 +50,6 @@ const addEvent = () => console.log('placeholder')
 // }
 
 export default {
-    getEvents,
     updateEvent,
     addEvent
 }

@@ -54,7 +54,6 @@ function EventForm({ }) {
 
   //checks if there are params
   //params ? run updateEvent : run addEvent (helper functions in EventService.js)
-
   const onSubmit = async (e) => {
     e.preventDefault()
     Object.keys(params).length ? await EventService.updateEvent(formValues) : await onAdd(formValues)
@@ -82,11 +81,14 @@ function EventForm({ }) {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group className="mb-3" controlId="formBasicLocation">
+            <LocationSearch placeholder="Location" name="location_name" value={formValues.location_name}
+              onChange={onChange}  />
+          {/* <Form.Group className="mb-3" controlId="formBasicLocation">
             <Form.Label>Event Location:</Form.Label>
+            
             <Form.Control placeholder="Location" name="location_name" value={formValues.location_name}
               onChange={onChange} />
-          </Form.Group>
+          </Form.Group> */}
         </Col>
         <Col>
           <Form.Group className="mb-3" controlId="formBasicDate">
@@ -115,11 +117,6 @@ function EventForm({ }) {
       <Row>
         <Col>
           <Form.Check type='checkbox' label="Affordable Event" name="is_affordable" checked={formValues.affordable} onChange={onChange} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <LocationSearch />
         </Col>
       </Row>
       <Row style={{ textAlign: 'right' }}>

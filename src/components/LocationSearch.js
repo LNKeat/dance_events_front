@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form, Container, Alert } from 'react-bootstrap';
 import Select from 'react-select';
 
-const LocationSearch = () => {
+const LocationSearch = ({ placeholder, name, value, onChange }) => {
     const [location, setLocation] = useState([])
     const [locList, setLocList ] = useState([
         { name: "Denver, Coloarado", id: 1 },
@@ -22,16 +22,15 @@ const LocationSearch = () => {
 
     return (
         <>
-        <h4>This is my datalist... hopefully</h4>
             <Form.Group className="mb-3" controlId="formBasicLocation">
                 <Form.Label>Event Location:</Form.Label>
-                <Form.Control placeholder="Location" name="location" value={location.name}
+                <Form.Control placeholder={placeholder} name={name} value={location.name}
                     onChange={handleChange} list="data" />
             </Form.Group>
             <datalist id="data">
               {buildLocList()}
             </datalist>
-            
+
         </>
     )
 }
