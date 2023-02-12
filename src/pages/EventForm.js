@@ -69,6 +69,7 @@ function EventForm({ }) {
     navigate('/');
   }
 
+  ///TO DO--- make dropdown with locations with Location_id, ??remove ability to update event name and event location (only update price, date, dance-style)
 
   return (
     <Form onSubmit={onSubmit}>

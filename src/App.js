@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Welcome />} />
           <Route path='/add' element={<EventForm />} />
-          <Route path='/update/:evtId' element={<EventForm />} />
           <Route path='/add-location' element={<LocationForm />} />
+          <Route path='/update/:evtId' element={<EventForm />} />
         </Routes>
         <Footer />
       </Container>
