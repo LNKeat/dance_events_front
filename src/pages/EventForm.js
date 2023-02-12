@@ -7,12 +7,12 @@ import { Col, Form, Row, Button } from 'react-bootstrap';
 function EventForm({ }) {
   const params = useParams()
   const navigate = useNavigate()
+  const [locationValue, setLocationValue] = useState("")
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
     "is_affordable": false,
     "dance_style": "",
-    "location_name": "", 
     "price":"",
     "id": ""
   })
@@ -25,7 +25,6 @@ function EventForm({ }) {
         ...data,
         location_name: data.location.name
     })
-
      }
      Object.keys(params).length && fetchEvt() 
     }, [params])
@@ -55,6 +54,7 @@ function EventForm({ }) {
 //params ? run updateEvent : run addEvent (helper functions in EventService.js)
 
   const onSubmit = async (e) => {
+
     e.preventDefault()
     Object.keys(params).length ? await EventService.updateEvent(formValues) : await onAdd(formValues)
     setFormValues({
@@ -84,7 +84,7 @@ function EventForm({ }) {
         <Col>
         <Form.Group className="mb-3" controlId="formBasicLocation">
           <Form.Label>Event Location:</Form.Label>
-          <Form.Control placeholder="Location" name="location_name" value={formValues.location_name}
+          <Form.Control placeholder="Location" name="location_name" value={formValues.location.location_name}
           onChange={onChange} />
           </Form.Group>
         </Col>
