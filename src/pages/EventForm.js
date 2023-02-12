@@ -7,7 +7,7 @@ import { Col, Form, Row, Button } from 'react-bootstrap';
 function EventForm({ }) {
   const params = useParams()
   const navigate = useNavigate()
-  const [locationValue, setLocationValue] = useState("")
+  const [location, setLocation] = useState("")
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
@@ -32,10 +32,13 @@ function EventForm({ }) {
   function onChange(e) {
     console.log(e.target.name, e.target.value)
     const { name, value } = e.target;
-    const newFormValues = {...formValues}
-    const newLocationValue = {...location}
+    if (name !== "location") {
+    const newFormValues = {...formValues, [name]: value}
     setFormValues(newFormValues)
-    setFormValues(newLocationValue)
+  } else {
+      const newLocation = value
+    setLocation(newLocation)
+    }
   }
 
    const onAdd= async (evt) => {
@@ -79,11 +82,13 @@ function EventForm({ }) {
         </Form.Group>
         </Col>
         <Col>
+{/* Location Input Here */}
         <Form.Group className="mb-3" controlId="formBasicLocation">
           <Form.Label>Event Location:</Form.Label>
-          <Form.Control placeholder="Location" name="locationValue" value={locationValue}
+          <Form.Control placeholder="Location" name="location" value={location}
           onChange={onChange} />
           </Form.Group>
+{/* Location Input Here */}
         </Col>
         <Col>
         <Form.Group className="mb-3" controlId="formBasicDate">
