@@ -11,7 +11,7 @@ function EventForm({ }) {
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
-    "is_affordable": false,
+    "is_affordable": "",
     "dance_style": "",
     "price":"",
     "id": ""
@@ -30,13 +30,12 @@ function EventForm({ }) {
     }, [params])
 
   function onChange(e) {
-    const { name, value, checked } = e.target;
-    const newData = {
-      ...formValues,
-      [name]: name !== 'is_affordable' ? value : checked
-    }
-
-    setFormValues(newData)
+    console.log(e.target.name, e.target.value)
+    const { name, value } = e.target;
+    const newFormValues = {...formValues}
+    const newLocationValue = {...location}
+    setFormValues(newFormValues)
+    setFormValues(newLocationValue)
   }
 
    const onAdd= async (evt) => {
@@ -54,13 +53,11 @@ function EventForm({ }) {
 //params ? run updateEvent : run addEvent (helper functions in EventService.js)
 
   const onSubmit = async (e) => {
-
     e.preventDefault()
     Object.keys(params).length ? await EventService.updateEvent(formValues) : await onAdd(formValues)
     setFormValues({
       "name": "",
       "start": "",
-      "is_affordable": false,
       "dance_style": "",
       "location_name": "",
       "price":"",
@@ -84,7 +81,7 @@ function EventForm({ }) {
         <Col>
         <Form.Group className="mb-3" controlId="formBasicLocation">
           <Form.Label>Event Location:</Form.Label>
-          <Form.Control placeholder="Location" name="location_name" value={formValues.location.location_name}
+          <Form.Control placeholder="Location" name="locationValue" value={locationValue}
           onChange={onChange} />
           </Form.Group>
         </Col>
@@ -110,11 +107,6 @@ function EventForm({ }) {
          <Form.Control placeholder="Price" name="price" value={formValues.price}
           onChange={onChange} />
           </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Form.Check type='checkbox' label="Affordable Event" name="is_affordable" checked={formValues.affordable} onChange={onChange}/>
         </Col>
       </Row>
       <Row style={{textAlign: 'right'}}>
