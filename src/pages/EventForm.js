@@ -52,7 +52,7 @@ function EventForm({ }) {
     }
   }
 
-  const onAdd = async (formValues) => {
+  const addEvent = async (formValues) => {
     const date = new Date(formValues.start)
     const newEvent = {...formValues, start: date}
     const res = await fetch('http://localhost:9292/events', {
@@ -80,7 +80,7 @@ function EventForm({ }) {
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    Object.keys(params).length ? await updateEvent(formValues) : await onAdd(formValues)
+    Object.keys(params).length ? await updateEvent(formValues) : await addEvent(formValues)
     setFormValues({
       "name": "",
       "start": "",

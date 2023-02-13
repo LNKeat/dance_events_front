@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Col, Form, Row, Button } from 'react-bootstrap';
+import { Col, Form, Row, Button, Alert, Container } from 'react-bootstrap';
 
 function LocationForm({ }) {
-    const navigate = useNavigate()
     const [newLocation, setNewLocation] = useState("")
+    const [evtAdded, setEvtAdded] = useState(false)
 
     const onAdd= async (loc) => {
         const res = await fetch('http://localhost:9292/locations', {
@@ -23,7 +23,7 @@ function LocationForm({ }) {
         e.preventDefault()
         onAdd(newLocation)
         setNewLocation("")
-        navigate('/');
+        setEvtAdded(true)
     }
 
 
@@ -44,6 +44,13 @@ function LocationForm({ }) {
                         </Button>
                     </Col>
                 </Row>
+                {evtAdded && (<Container>
+                <Row>
+                    <Col>
+                        <Alert>New Event Added! <Button href={`/`} style={{backgroundColor: '#6c63ff', border: 'none'}}>View Events</Button></Alert>
+                    </Col>
+                </Row>
+                </Container>)}
             </Row>
         </Form>
     );
