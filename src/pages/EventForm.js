@@ -33,12 +33,11 @@ function EventForm({ }) {
     const fetchEvt = async () => {
       const resp = await fetch(`http://localhost:9292/events/${params.evtId}`)
       const data = await resp.json()
-      console.log(data)
       setFormValues({
         ...data,
         location_name: data.location.name
       })
-      console.log("after", formValues)
+      setLocation({name: data.location.name, id: data.location_id})
     }
     fetchLocations()
     Object.keys(params).length && fetchEvt()
@@ -82,8 +81,6 @@ function EventForm({ }) {
     })
     navigate('/');
   }
-
-  ///TO DO--- make dropdown with locations with Location_id, ??remove ability to update event name and event location (only update price, date, dance-style)
 
   return (
     <Form onSubmit={onSubmit}>
