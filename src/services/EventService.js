@@ -5,13 +5,13 @@ const updateEvent = async (formValues) => {
     }
 
     //update location
-    const locationRes = await fetch(`http://localhost:9292/locations/${location.id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(location),
-    })
+    // const locationRes = await fetch(`http://localhost:9292/locations/${location.id}`, {
+    //     method: 'PUT',
+    //     headers: {
+    //         'Content-type': 'application/json',
+    //     },
+    //     body: JSON.stringify(location),
+    // })
 
 
     //update event
