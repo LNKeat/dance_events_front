@@ -65,18 +65,20 @@ function EventForm({ }) {
     const evtData = await res.json()
   }
 
-  //checks if there are params
+  //onSubmit checks if there are params
   //params ? run updateEvent : run addEvent (helper functions in EventService.js)
-
   const onSubmit = async (e) => {
     e.preventDefault()
+
     Object.keys(params).length ? await EventService.updateEvent(formValues) : await onAdd(formValues)
     setFormValues({
       "name": "",
       "start": "",
+      "is_affordable": "",
       "dance_style": "",
-      "location_name": "",
       "price": "",
+      "location_id": "",
+      "location_name": "",
       "id": ""
     })
     navigate('/');
