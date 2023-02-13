@@ -17,30 +17,10 @@ function EventForm({ }) {
     "is_affordable": "",
     "dance_style": "",
     "price": "",
+    "location_id": "",
+    "location_name": "",
     "id": ""
   })
-  const locationList = [
-    {
-      id: 235,
-      name: "Pasadena, California"
-    },
-    {
-      id: 236,
-      name: "New York, New York"
-    },
-    {
-      id: 237,
-      name: "Stockholm, Sweden"
-    },
-    {
-      id: 238,
-      name: "Melbourne, Australia"
-    },
-    {
-      id: 239,
-      name: "Denver, CO"
-    }
-  ]
 
   useEffect(() => {
     //fetch locations
@@ -53,17 +33,18 @@ function EventForm({ }) {
     const fetchEvt = async () => {
       const resp = await fetch(`http://localhost:9292/events/${params.evtId}`)
       const data = await resp.json()
+      console.log(data)
       setFormValues({
         ...data,
         location_name: data.location.name
       })
+      console.log("after", formValues)
     }
     fetchLocations()
     Object.keys(params).length && fetchEvt()
   }, [params])
 
   function onChange(e) {
-    console.log(e.target.name, e.target.value)
     const { name, value } = e.target;
     if (name !== "location") {
       const newFormValues = { ...formValues, [name]: value }
@@ -116,25 +97,19 @@ function EventForm({ }) {
         </Col>
         <Col className="m-4">
   {/* Location Input Here (TODO: add controlled state to dropdown) */}
-            <Form.Label>Location:</Form.Label>
             <Dropdown onSelect={(eventKey, event) => {
               const locId = eventKey
               const locName = event.target.innerText
               setLocation({name: locName, id: locId})
+              setFormValues({...formValues, location_id: locId, location_name: locName})
               }}>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle style={{backgroundColor: '#6c63ff', border: 'none'}} id="dropdown-basic">
                 {location.name}
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {locations.map((loc) => <Dropdown.Item eventKey={loc.id} key={loc.id}>{loc.name}</Dropdown.Item>)}
               </Dropdown.Menu>
             </Dropdown>
-          {/* <Form.Group className="mb-3" controlId="formBasicLocation">
-            <Form.Label>Event Location:</Form.Label>
-            <Form.Control placeholder="Location" name="location" value={location}
-              onChange={onChange} />
-          </Form.Group> */}
-          {/* Location Input Here */}
         </Col>
         <Col>
           <Form.Group className="mb-3" controlId="formBasicDate">
