@@ -1,5 +1,3 @@
-
-import EventService from '../services/EventService';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Col, Form, Row, Button, Dropdown } from 'react-bootstrap';
@@ -14,12 +12,12 @@ function EventForm({ }) {
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
-    "is_affordable": "",
+    "is_affordable": false,
     "dance_style": "",
-    "price": "",
-    "location_id": "",
+    "price": 0,
+    "location_id": 0,
     "location_name": "",
-    "id": ""
+    "id": 0
   })
 
   useEffect(() => {
@@ -54,13 +52,15 @@ function EventForm({ }) {
     }
   }
 
-  const onAdd = async (evt) => {
+  const onAdd = async (formValues) => {
+    const date = new Date(formValues.start)
+    const newEvent = {...formValues, start: date}
     const res = await fetch('http://localhost:9292/events', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(evt),
+      body: JSON.stringify(newEvent),
     })
     const evtData = await res.json()
   }
@@ -105,7 +105,6 @@ function EventForm({ }) {
           </Form.Group>
         </Col>
         <Col className="m-4">
-  {/* Location Input Here (TODO: add controlled state to dropdown) */}
             <Dropdown onSelect={(eventKey, event) => {
               const locId = eventKey
               const locName = event.target.innerText
