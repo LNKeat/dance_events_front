@@ -8,7 +8,7 @@ function EventForm({ }) {
   const params = useParams()
   const navigate = useNavigate()
   const [locations, setLocations] = useState([])
-  const [location, setLocation] = useState({name: "Location", id: null})
+  const [location, setLocation] = useState({name: "Event Location", id: null})
   const [formValues, setFormValues] = useState({
     "name": "",
     "start": "",
@@ -104,7 +104,32 @@ function EventForm({ }) {
               onChange={onChange} />
           </Form.Group>
         </Col>
-        <Col className="m-4">
+        
+        <Col>
+          <Form.Group className="mb-3" controlId="formBasicDate">
+            <Form.Label>Start Date:</Form.Label>
+            <Form.Control placeholder="Month/Day/Year" name="start" value={formValues.start}
+              onChange={onChange} />
+          </Form.Group>
+        </Col>
+        <Col className='justify-bottom'>
+          <Form.Group className="mb-3" controlId="formBasicPrice">
+            <Form.Label>Price:</Form.Label>
+            <Form.Control placeholder="Price" name="price" value={formValues.price}
+              onChange={onChange} />
+          </Form.Group>
+        </Col>
+      </Row>
+      <Row>
+        <Col className='justify-bottom'>
+          <Form.Group className="mb-3" controlId="formBasicStyle">
+            <Form.Label>Dance Style:</Form.Label>
+            <Form.Control as="textarea" placeholder="Dance Style" name="dance_style" value={formValues.dance_style}
+              onChange={onChange} />
+          </Form.Group>
+        </Col>
+        <Col className="m-2">
+        <Form.Label className="m-3 p-0"> </Form.Label>
             <Dropdown onSelect={(eventKey, event) => {
               const locId = eventKey
               const locName = event.target.innerText
@@ -118,29 +143,6 @@ function EventForm({ }) {
                 {locations.map((loc) => <Dropdown.Item eventKey={loc.id} key={loc.id}>{loc.name}</Dropdown.Item>)}
               </Dropdown.Menu>
             </Dropdown>
-        </Col>
-        <Col>
-          <Form.Group className="mb-3" controlId="formBasicDate">
-            <Form.Label>Start Date:</Form.Label>
-            <Form.Control placeholder="Month/Day/Year" name="start" value={formValues.start}
-              onChange={onChange} />
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col className='justify-bottom'>
-          <Form.Group className="mb-3" controlId="formBasicStyle">
-            <Form.Label>Dance Style:</Form.Label>
-            <Form.Control as="textarea" placeholder="Dance Style" name="dance_style" value={formValues.dance_style}
-              onChange={onChange} />
-          </Form.Group>
-        </Col>
-        <Col className='justify-bottom'>
-          <Form.Group className="mb-3" controlId="formBasicPrice">
-            <Form.Label>Price:</Form.Label>
-            <Form.Control placeholder="Price" name="price" value={formValues.price}
-              onChange={onChange} />
-          </Form.Group>
         </Col>
       </Row>
       <Row style={{ textAlign: 'right' }}>
