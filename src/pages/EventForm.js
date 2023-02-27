@@ -1,3 +1,4 @@
+import FormServices from '../services/FormServices';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Col, Form, Row, Button, Dropdown } from 'react-bootstrap';
@@ -52,35 +53,35 @@ function EventForm({ }) {
     }
   }
 
-  const addEvent = async (formValues) => {
-    const date = new Date(formValues.start)
-    const newEvent = {...formValues, start: date}
-    const res = await fetch('http://localhost:9292/events', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(newEvent),
-    })
-    const evtData = await res.json()
-  }
+//   const addEvent = async (formValues) => {
+//     const date = new Date(formValues.start)
+//     const newEvent = {...formValues, start: date}
+//     const res = await fetch('http://localhost:9292/events', {
+//       method: 'POST',
+//       headers: {
+//         'Content-type': 'application/json',
+//       },
+//       body: JSON.stringify(newEvent),
+//     })
+//     const evtData = await res.json()
+//   }
 
-  const updateEvent = async (formValues) => {
-    const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(formValues),
-    })
-}
+//   const updateEvent = async (formValues) => {
+//     const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-type': 'application/json',
+//         },
+//         body: JSON.stringify(formValues),
+//     })
+// }
 
   //onSubmit checks if there are params
   //params ? run updateEvent : run addEvent (helper functions in EventService.js)
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    Object.keys(params).length ? await updateEvent(formValues) : await addEvent(formValues)
+    Object.keys(params).length ? await FormServices.updateEvent(formValues) : await FormServices.addEvent(formValues)
     setFormValues({
       "name": "",
       "start": "",
