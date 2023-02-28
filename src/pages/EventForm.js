@@ -53,31 +53,8 @@ function EventForm({ }) {
     }
   }
 
-//   const addEvent = async (formValues) => {
-//     const date = new Date(formValues.start)
-//     const newEvent = {...formValues, start: date}
-//     const res = await fetch('http://localhost:9292/events', {
-//       method: 'POST',
-//       headers: {
-//         'Content-type': 'application/json',
-//       },
-//       body: JSON.stringify(newEvent),
-//     })
-//     const evtData = await res.json()
-//   }
-
-//   const updateEvent = async (formValues) => {
-//     const eventRes = await fetch(`http://localhost:9292/events/${formValues.id}`, {
-//         method: 'PUT',
-//         headers: {
-//             'Content-type': 'application/json',
-//         },
-//         body: JSON.stringify(formValues),
-//     })
-// }
-
   //onSubmit checks if there are params
-  //params ? run updateEvent : run addEvent (helper functions in EventService.js)
+  //params ? run updateEvent : run addEvent (helper functions in FormServices.js)
   const onSubmit = async (e) => {
     e.preventDefault()
 

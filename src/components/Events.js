@@ -11,16 +11,16 @@ const Events = () => {
       const resp = await fetch('http://localhost:9292/events')
       const evtData = await resp.json()
       setEvtList(evtData.map((evt) => ({
-          ...evt,
-          location_name: evt.location.name
+        ...evt,
+        location_name: evt.location.name
       })))
     }
     getEvents()
-   }, [])
+  }, [])
 
-   
 
-   const onAdd= async (evt) => {
+
+  const onAdd = async (evt) => {
     const res = await fetch('http://localhost:5000/dance-events', {
       method: 'POST',
       headers: {
@@ -29,23 +29,24 @@ const Events = () => {
       body: JSON.stringify(evt),
     })
     const evtData = await res.json()
-   }
+  }
 
-   const handleDelete = async (id) => {
+  const handleDelete = async (id) => {
     const res = await fetch(`http://localhost:9292/events/${id}`, {
       method: 'DELETE',
     })
     setEvtList(evtList.filter((evt) => evt.id !== id))
-   }
+  }
 
   return (
-    <Container fluid className="boot-pract" style={{textAlign: 'center'}}>
+    <Container fluid className="boot-pract" style={{ textAlign: 'center' }}>
+  
       <Row md="auto">
-      {evtList.map((evt) => (
+        {evtList.map((evt) => (
           <Col key={evt.id}>
             <Event evt={evt} onDelete={handleDelete} />
           </Col>
-      ))}
+        ))}
       </Row>
     </Container>
   )
