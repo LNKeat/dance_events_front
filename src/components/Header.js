@@ -12,7 +12,7 @@ function Header() {
     <Navbar expand="lg">
       <Container style={{border:'5px solid #3f3d56', alignContent: 'center'}}>
       <Image rounded src={workout} width={200} height={200} />
-        <Navbar.Brand href="/">Dance Event Tracker</Navbar.Brand>
+        <Navbar.Brand href="/">Dance Festival Planning List</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" style={{alignContent: 'right'}}>
